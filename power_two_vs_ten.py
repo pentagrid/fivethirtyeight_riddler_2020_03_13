@@ -2,12 +2,11 @@
 # original author is David R. Perek
 # Provided under the MIT license. Have fun
 
-import math
 from decimal import Decimal
 from decimal import getcontext
 
 found_max = 10  # maximum number of values to find
-getcontext().prec = found_max # make sure we have "enough" precision, maybe
+getcontext().prec = 5  # make sure we have "enough" precision, maybe
 found = 0 # number of values found so far
 # threshold sets the maximum amount of error between the power of two and the nearest
 # power of ten for the pair to be considered a found value
@@ -24,6 +23,7 @@ current_exp_2 = 10
 # and we could screen the first two digits in base ten to weed out most impossible values, or apply a
 # heuristic to the first bits to see if it can be a possible consideration. In any case, I didn't do this.
 while found < found_max:
+
     current_val_2 = Decimal(1 << current_exp_2)  # compute the current power of two
     current_log_2 = Decimal.log10(current_val_2)  # compute the base ten log of the current value of two
     current_exp_10 = divmod(current_log_2,1)[0]  # consider only the integer part of the log
