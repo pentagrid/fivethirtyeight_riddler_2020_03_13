@@ -41,7 +41,7 @@ while found < found_max:
     error = Decimal(current_val_2) / Decimal(current_val_10) - Decimal(1.0)
     if abs(error) <= threshold: # if the error is less than or equal to the threshold
         # print the values out
-        print str(found) + "," + str(current_val_2) + "," + str(current_val_10) + "," + str(error)
+        print(str(found) + "," + str(current_val_2) + "," + str(current_val_10) + "," + str(error))
         # put a notch in the belt
         found = found + 1
     # prepare for the next search iteration
